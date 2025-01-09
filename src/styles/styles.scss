@@ -1,8 +1,49 @@
-$bgcolor: #1cdbe9;
-
-body{
-    background-color: $bgcolor;
+@use 'hero';
+@use 'variaveis';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.container{
-    color: #fff;
+body{
+    background-color: variaveis.$corDeFundo;
+}
+
+
+
+@mixin text($fontSize: 16px){
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoPrimcipal;
+}
+@mixin title($fontSize: 40px){
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoSecundario;
+}
+
+.text--big{
+    @include text(18px)
+}
+.text {
+    @include text
+}
+.text--small{
+    @include text(12px)
+}
+
+.title--big{
+    @include title(44px)
+}
+.title{
+    @include title
+}
+.title--small{
+    @include title(28px)
+}
+
+.link-text{
+    @include text(18px);
+    color: variaveis.$corTextoSecundario;
+    text-decoration: underline;
 }
