@@ -10,14 +10,28 @@
         justify-content: space-around;
         margin-top: 42px;
 
+        @media screen and (max-width: 767px){
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            
+        }
+
         &__item{
             text-align: center;
             padding: 60px 44px 44px;
             max-width: 380px;
             max-width: 100%;
             margin: 0 30px;
+
+            @media screen and (max-width: 767px) {
+                align-items: center;
+                justify-content: center;
+            }
+            
             img{
                 height: 83px;
+                
             }
             strong{
                 display: block;

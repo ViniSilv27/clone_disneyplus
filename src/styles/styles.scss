@@ -3,6 +3,10 @@
 @use 'shows';
 @use 'plans';
 @use 'avalibe-devices';
+@use 'faq';
+@use 'footer';
+@use 'header';
+
 
 
 @font-face {
@@ -21,6 +25,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Avenir, sans-serif;
+    list-style: none;
 }
 body{
     background-color: variaveis.$corDeFundo;
@@ -42,23 +47,43 @@ body{
 }
 
 .text--big{
-    @include text(18px)
+    @include text(18px);
+
+    @media (max-width: 767px){
+        @include text(15px);
+    }
 }
 .text {
-    @include text
+    @include text;
+    @media (max-width: 767px){
+        @include text(14px);
+    }
 }
 .text--small{
-    @include text(12px)
+    @include text(12px);
+
+    @media (max-width: 767px){
+        @include text(11px);
+    }
 }
 
 .title--big{
-    @include title(44px)
+    @include title(44px);
+    @media (max-width: 767px){
+        @include title(28px);
+    }
 }
 .title{
-    @include title
+    @include title;
+    @media (max-width: 767px){
+        @include title(24px);
+    }
 }
 .title--small{
-    @include title(28px)
+    @include title(28px);
+    @media (max-width: 767px){
+        @include title(22px);
+    }
 }
 
 .link-text{
@@ -67,17 +92,46 @@ body{
     text-decoration: underline;
 }
 .button{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 60px;
     font-size: 18px;
     color: variaveis.$corTextoSecundario;
-    background-color: #6421ff;
+    background-color: variaveis.$corDeFundoBotaoPrimary;
     text-transform: uppercase;
-    margin-top: 2vw;
-    margin-bottom: 8px;
     border-radius: 4px;
+    padding: 8px 14px;
     cursor: pointer;
+    text-decoration: none;
+    border: 1px solid variaveis.$corDeFundoBotaoPrimary;
+
+    @media screen and (max-width: 767px) {
+        margin: 24px 0;
+    }
+
+    &:hover{
+        background-color: lighten(variaveis.$corDeFundoBotaoPrimary, 10%);
+    }
+
+    &--secundary{
+        background-color: variaveis.$corDeFundoBotaoSecundary;
+        border-color: variaveis.$corDeFundoBotaoSecundary;
+        &:hover{
+            background-color: lighten(variaveis.$corDeFundoBotaoSecundary, 10%);
+        }
+
+    }
+
+    &--dark{
+        background-color: rgba(0, 0, 0, 0.8);
+        border-color: variaveis.$corTextoSecundario;
+        &:hover{
+            color: #000;
+            background-color: lighten(variaveis.$corTextoSecundario, 10%);
+        }
+    }
 }
 
 .image-text-container{
@@ -85,6 +139,9 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    @media screen and (max-width: 767px){
+        display: block;
+    }
 
     img{
         max-width: 100%;
@@ -114,6 +171,12 @@ body{
             display: flex;
             flex-direction: column;
             justify-content: center;
+
+            @media screen and (max-width: 767px){
+                position: relative;
+                left: 0;
+                width: 100%;
+            }
         }
     }
     
